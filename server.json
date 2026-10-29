@@ -5,7 +5,7 @@
   "description": "Paywalls, onboarding, subscription analytics, A/B tests, attribution and errors for mobile apps.",
   "websiteUrl": "https://docs.fictura.co/connections/outgoing/mcp-server",
   "repository": {
-    "url": "https://github.com/fictura/mcp",
+    "url": "https://github.com/Apex-Byte-Technologies/fictura-mcp",
     "source": "github"
   },
   "version": "0.1.2",

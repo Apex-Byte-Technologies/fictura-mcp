@@ -65,7 +65,7 @@ Your account or workspace policy must allow custom MCP servers.
 Install the plugin from this repository. It adds the server and a skill that makes Claude read your app's real setup before it writes integration code:
 
 ```bash
-claude plugin marketplace add fictura/mcp
+claude plugin marketplace add Apex-Byte-Technologies/fictura-mcp
 claude plugin install fictura@fictura
 ```
 
@@ -162,7 +162,7 @@ Open the Cascade panel's `...` menu, then **Open MCP config file**, and add:
 ### Gemini CLI
 
 ```bash
-gemini extensions install https://github.com/fictura/mcp
+gemini extensions install https://github.com/Apex-Byte-Technologies/fictura-mcp
 ```
 
 The installer asks for an optional MCP key and keeps it in your system keychain. Change it later with `gemini extensions config fictura`.
