@@ -1,0 +1,21 @@
+{
+  "name": "fictura",
+  "version": "1.0.0",
+  "description": "Your mobile app's paywalls, onboarding, subscription analytics, experiments, attribution and errors, from Fictura's hosted MCP server.",
+  "mcpServers": {
+    "fictura": {
+      "httpUrl": "https://mcp.fictura.co/mcp",
+      "headers": {
+        "X-API-Key": "${FICTURA_MCP_KEY:-}"
+      }
+    }
+  },
+  "settings": [
+    {
+      "name": "Fictura MCP key",
+      "description": "Optional. An MCP key (fk_mcp_...) from the Fictura dashboard: Setup > Coding agents (MCP). Leave empty to use only the documentation tools.",
+      "envVar": "FICTURA_MCP_KEY",
+      "sensitive": true
+    }
+  ]
+}

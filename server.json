@@ -1,0 +1,70 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "co.fictura/mcp",
+  "title": "Fictura",
+  "description": "Paywalls, onboarding, subscription analytics, A/B tests, attribution and errors for mobile apps.",
+  "websiteUrl": "https://docs.fictura.co/connections/outgoing/mcp-server",
+  "repository": {
+    "url": "https://github.com/fictura/mcp",
+    "source": "github"
+  },
+  "version": "0.1.2",
+  "icons": [
+    {
+      "src": "https://fictura.co/brand/fictura-icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    },
+    {
+      "src": "https://fictura.co/brand/dark/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.fictura.co/mcp",
+      "headers": [
+        {
+          "name": "X-API-Key",
+          "description": "Optional Fictura MCP key (fk_mcp_...) from Dashboard > Setup > Coding agents (MCP). Leave it out to sign in with your Fictura account (OAuth) instead.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@fictura/mcp",
+      "version": "0.1.2",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "FICTURA_MCP_KEY",
+          "description": "Fictura MCP key (fk_mcp_...) from Dashboard > Setup > Coding agents (MCP). Leave it out to sign in with your Fictura account in the browser instead. The documentation tools work either way.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "FICTURA_API_BASE",
+          "description": "Override the Fictura API base URL. Leave unset unless Fictura support asks you to change it.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string",
+          "default": "https://api.fictura.co"
+        }
+      ]
+    }
+  ]
+}

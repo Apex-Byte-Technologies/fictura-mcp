@@ -1,0 +1,14 @@
+{
+  "name": "fictura",
+  "version": "1.0.0",
+  "description": "Connects Cursor to Fictura's hosted MCP server: your mobile app's paywalls, onboarding flows, subscription analytics, experiments, attribution and errors. Sign in with your Fictura account; drafts never go live from the agent.",
+  "author": {
+    "name": "Apex Byte Technologies",
+    "email": "info@fictura.co"
+  },
+  "homepage": "https://docs.fictura.co/connections/outgoing/mcp-server",
+  "license": "MIT",
+  "keywords": ["fictura", "mcp", "expo", "react-native", "paywalls", "onboarding", "analytics", "experiments", "attribution"],
+  "logo": "assets/fictura-icon-512.png",
+  "skills": "./plugins/fictura/skills/"
+}

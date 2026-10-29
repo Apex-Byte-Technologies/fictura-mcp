@@ -1,0 +1,18 @@
+{
+  "name": "fictura",
+  "owner": {
+    "name": "Apex Byte Technologies",
+    "email": "info@fictura.co",
+    "url": "https://fictura.co"
+  },
+  "description": "Fictura for Claude Code: your mobile app's paywalls, onboarding, analytics, experiments, attribution and errors, over MCP.",
+  "plugins": [
+    {
+      "name": "fictura",
+      "source": "./plugins/fictura",
+      "description": "Connects Claude Code to Fictura's hosted MCP server so Claude can read your app's real setup, funnels, experiments and errors, and build paywall and onboarding drafts.",
+      "category": "development",
+      "tags": ["mcp", "mobile", "expo", "react-native", "paywalls", "analytics"]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "fictura": {
+      "type": "http",
+      "url": "https://mcp.fictura.co/mcp"
+    }
+  }
+}

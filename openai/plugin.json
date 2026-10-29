@@ -1,0 +1,44 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "fictura",
+  "version": "1.0.0",
+  "description": "Read your mobile app's paywalls, onboarding flows, subscription analytics, experiments, attribution and errors from Fictura, and build paywall and onboarding drafts.",
+  "author": {
+    "name": "Apex Byte Technologies",
+    "email": "info@fictura.co",
+    "url": "https://fictura.co"
+  },
+  "homepage": "https://docs.fictura.co/connections/outgoing/mcp-server",
+  "license": "MIT",
+  "keywords": ["mobile apps", "expo", "react native", "paywalls", "subscriptions", "analytics", "experiments", "attribution"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Fictura",
+        "shortDescription": "Paywalls, analytics and errors",
+        "longDescription": "Fictura is a growth platform for Expo and React Native apps. This plugin connects ChatGPT and Codex to your Fictura app so you can ask about it in plain language and get answers from your real data.\n\nWhat you can do:\n- Analytics: headline metrics, the conversion funnel with drop-off per step, cohorts, revenue by store and country, and individual users' history and subscription status.\n- Experiments: list A/B tests and read their Bayesian results.\n- Acquisition: attribution, installs, ad spend, ROAS by campaign, creators, and App Store and Google Play analytics.\n- Errors: grouped error issues with stack traces, a fix brief for one issue, and distributed traces.\n- Paywalls and onboarding: read every paywall and onboarding flow, see what is live at each placement, and create or edit drafts from templates or documents.\n- Setup: the app's real SDK key and API base, deep link configuration, push setup and App Store subscription products, so generated code needs no placeholders.\n- Documentation: search and read the Fictura docs, which works without signing in.\n\nWho it is for: founders, growth teams and developers of subscription mobile apps who use Fictura.\n\nLimits: you sign in with your Fictura account and pick one app and an access level; the plugin only sees that app. Drafts never go live from here; a person publishes them in the Fictura dashboard. Live paywalls and flows are never edited. App data needs an active Fictura subscription with AI access.",
+        "developerName": "Apex Byte Technologies",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Read app analytics, funnels and cohorts",
+          "Read experiments, attribution and ad performance",
+          "Read error issues, stack traces and traces",
+          "Create and edit paywall and onboarding drafts",
+          "Search and read Fictura documentation"
+        ],
+        "websiteURL": "https://fictura.co",
+        "supportURL": "https://fictura.co/contact",
+        "privacyPolicyURL": "https://fictura.co/privacy",
+        "termsOfServiceURL": "https://fictura.co/terms",
+        "defaultPrompt": [
+          "Where do users drop off in my onboarding funnel this month?",
+          "Which experiment is winning, and how sure are we?",
+          "What is the top unresolved error in the latest release, and how do I fix it?"
+        ],
+        "brandColor": "#2646B3",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      }
+    }
+  }
+}
