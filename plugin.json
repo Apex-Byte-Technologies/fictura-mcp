@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "fictura",
+  "version": "1.0.0",
+  "description": "AI-native growth platform and unified app data layer for Expo and React Native apps. Gives agents the app's real SDK setup, paywall and onboarding configs, funnels, subscriptions, A/B experiments, attribution and crash reports through Fictura's hosted MCP server. Draft-only edits; never publishes live.",
+  "author": {
+    "name": "Fictura",
+    "url": "https://fictura.co",
+    "email": "info@fictura.co"
+  },
+  "keywords": ["fictura", "mobile app growth", "paywall", "onboarding", "subscriptions", "analytics", "a/b testing", "attribution", "expo", "react native", "crash reports", "mcp"],
+  "license": "MIT",
+  "homepage": "https://docs.fictura.co/connections/outgoing/mcp-server",
+  "repository": "https://github.com/Apex-Byte-Technologies/fictura-mcp"
+}
