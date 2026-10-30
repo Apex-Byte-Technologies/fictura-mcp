@@ -284,4 +284,4 @@ This repository holds the public listing files for the hosted server. The server
 
 ## License
 
-[MIT](LICENSE) © Apex Byte Technologies
+[MIT](LICENSE) © Fictura
