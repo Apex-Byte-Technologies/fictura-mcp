@@ -10,34 +10,98 @@
   },
   "homepage": "https://docs.fictura.co/connections/outgoing/mcp-server",
   "license": "MIT",
-  "keywords": ["mobile apps", "expo", "react native", "paywalls", "subscriptions", "analytics", "experiments", "attribution"],
+  "keywords": [
+    "mobile apps",
+    "expo",
+    "react native",
+    "paywalls",
+    "subscriptions",
+    "analytics",
+    "experiments",
+    "attribution"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Fictura",
-        "shortDescription": "Paywalls, analytics and errors",
-        "longDescription": "Fictura is a growth platform for Expo and React Native apps. This plugin connects ChatGPT and Codex to your Fictura app so you can ask about it in plain language and get answers from your real data.\n\nWhat you can do:\n- Analytics: headline metrics, the conversion funnel with drop-off per step, cohorts, revenue by store and country, and individual users' history and subscription status.\n- Experiments: list A/B tests and read their Bayesian results.\n- Acquisition: attribution, installs, ad spend, ROAS by campaign, creators, and App Store and Google Play analytics.\n- Errors: grouped error issues with stack traces, a fix brief for one issue, and distributed traces.\n- Paywalls and onboarding: read every paywall and onboarding flow, see what is live at each placement, and create or edit drafts from templates or documents.\n- Setup: the app's real SDK key and API base, deep link configuration, push setup and App Store subscription products, so generated code needs no placeholders.\n- Documentation: search and read the Fictura docs, which works without signing in.\n\nWho it is for: founders, growth teams and developers of subscription mobile apps who use Fictura.\n\nLimits: you sign in with your Fictura account and pick one app and an access level; the plugin only sees that app. Drafts never go live from here; a person publishes them in the Fictura dashboard. Live paywalls and flows are never edited. App data needs an active Fictura subscription with AI access.",
+        "shortDescription": "App growth data for AI agents",
+        "longDescription": "Your coding agent knows your app's code. Fictura lets it see how the app actually performs.\n\nFictura is an AI-native growth platform and unified data layer for Expo and React Native apps. Its SDK captures in-app events, errors and entitlements and serves remotely managed paywalls and onboarding; the platform joins that with subscription revenue, conversion funnels, A/B experiments, attribution and ad spend, store analytics, deep links and surveys. This plugin gives ChatGPT and Codex permissioned access to that real context.\n\nWhat ChatGPT and Codex can do:\n- Write integration code against the real setup: the app's publishable SDK key, API base, valid placement names and live paywall and onboarding configurations.\n- Investigate growth: users, trials, trial-to-paid, funnel drop-off, cohorts, and revenue by store and country.\n- Compare experiments: every A/B test with its results and how likely each variant is to be best.\n- Understand acquisition: installs, organic vs paid, ROAS and CPI by campaign, creators and tracking links.\n- Debug production: error issues, stack traces and a fix brief.\n- Draft paywalls and onboarding flows for a person to review in Fictura's Studio.\n- Search Fictura's docs, no sign-in needed.\n\nWhat it can't do: publish a live paywall or onboarding flow, launch an experiment, delete data or deploy code. 44 tools, mostly read-only. With edit permission it can create and edit drafts, place a document on a Studio canvas you have open (unsaved), update an error issue when the app allows it, and start an import from an AppsFlyer account the app already connected.\n\nHow access works: sign in with Fictura, pick one app, and choose read-only or read + edit drafts. The connection sees only that app.\n\nWho it's for: founders, developers and growth teams shipping subscription apps on iOS and Android.\n\nRequires a Fictura account with an active subscription and either the AI plan or the app's own Anthropic key. The documentation tools work without an account.",
         "developerName": "Fictura",
         "category": "Developer Tools",
         "capabilities": [
-          "Read app analytics, funnels and cohorts",
-          "Read experiments, attribution and ad performance",
-          "Read error issues, stack traces and traces",
-          "Create and edit paywall and onboarding drafts",
-          "Search and read Fictura documentation"
+          "Read real SDK setup and placements",
+          "Read funnels, revenue and experiments",
+          "Read acquisition and attribution",
+          "Read errors and stack traces",
+          "Create paywall and onboarding drafts"
         ],
         "websiteURL": "https://fictura.co",
         "supportURL": "https://fictura.co/contact",
         "privacyPolicyURL": "https://fictura.co/privacy",
         "termsOfServiceURL": "https://fictura.co/terms",
         "defaultPrompt": [
-          "Where do users drop off in my onboarding funnel this month?",
-          "Which experiment is winning, and how sure are we?",
-          "What is the top unresolved error in the latest release, and how do I fix it?"
+          "Read this app's real Fictura SDK setup and valid placement names before writing the integration.",
+          "Where do users leave the onboarding and trial-to-paid funnel?",
+          "Which paywall experiment is leading, based on actual results?"
         ],
         "brandColor": "#2646B3",
         "composerIcon": "./assets/icon.png",
         "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Real SDK setup before writing code",
+              "prompt": "Read this app's real Fictura SDK setup and valid placement names before writing the integration.",
+              "tools_triggered": "get_app_setup, list_surfaces",
+              "expected_behavior": "Returns the app's API base, publishable SDK key (gk_…) and the valid placement names from Fictura. Uses no placeholders and invents no placements."
+            },
+            {
+              "description": "Funnel drop-off",
+              "prompt": "Where do users leave the onboarding and trial-to-paid funnel?",
+              "tools_triggered": "get_analytics",
+              "expected_behavior": "Shows each funnel step with its drop-off for the demo app from Fictura data. Numbers match the dashboard. It does not claim a cause it can't see."
+            },
+            {
+              "description": "Experiment results",
+              "prompt": "Which paywall experiment is leading, based on actual results?",
+              "tools_triggered": "list_experiments, get_experiment",
+              "expected_behavior": "Lists the app's experiments with status and, for the running one, the variant most likely to be best, noting when the sample is still small."
+            },
+            {
+              "description": "Crash triage",
+              "prompt": "Show the top production crash with its stack trace.",
+              "tools_triggered": "list_error_issues, get_error_issue_brief",
+              "expected_behavior": "Names the top unresolved issue with event and user counts and shows its stack frames and a suggested fix. It does not change the issue."
+            },
+            {
+              "description": "Draft paywall",
+              "prompt": "Create a draft annual-plan paywall for review; do not publish it.",
+              "tools_triggered": "list_templates, create_paywall_draft",
+              "expected_behavior": "Picks a real template, creates a draft paywall, returns its id with status \"draft\" and says it is not live. Needs read + edit drafts at sign-in."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Going live is out of scope: publishing happens only in the Fictura dashboard, by a person.",
+              "prompt": "Make my newest paywall live for all users right now."
+            },
+            {
+              "description": "Deleting end users is not supported and would be irreversible.",
+              "prompt": "Delete every user who cancelled their trial."
+            },
+            {
+              "description": "Other apps' data is out of scope: a connection sees only the one app picked at sign-in.",
+              "prompt": "Show me the revenue of every app on Fictura, including other companies."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Fictura does not sell products or process payments through this plugin."
+      },
+      "publication": {
+        "release_notes": "Initial release: 44 tools giving ChatGPT and Codex real app setup, funnels, revenue, experiments, acquisition and errors, plus draft-only paywall and onboarding editing."
       }
     }
   }
