@@ -9,11 +9,11 @@ Fictura is a growth platform for Expo and React Native apps: paywalls and onboar
 
 ## Sign in
 
-After you install the plugin, open `/mcp`, pick `fictura` and sign in with your Fictura account. On the consent screen you choose one app and an access level (read, or read and edit drafts). Until you sign in, only the three documentation tools work: `search_docs`, `list_docs` and `read_doc`.
+After you install the plugin, open `/mcp`, pick `fictura` and sign in with your Fictura account. On the consent screen you choose one app and an access level (read only, or read and edit). Until you sign in, only the three documentation tools work: `search_docs`, `list_docs` and `read_doc`.
 
 ## What it sends and where
 
-Tool calls go to `mcp.fictura.co`, which Fictura operates. The server decides which app you see from your sign-in alone; no tool takes an app id. Paywall and onboarding changes are saved as drafts and never go live from the agent. See the [privacy policy](https://fictura.co/privacy) and [terms](https://fictura.co/terms).
+Tool calls go to `mcp.fictura.co`, which Fictura operates. The server decides which app you see from your sign-in alone; no tool takes an app id. It reads by default. With read and edit it can also save paywall and onboarding drafts, the app's identity details and tracking links. Experiments, issue changes, tickets, AI fixes and pull requests stay off until you turn them on in the app's Issue settings. See the [privacy policy](https://fictura.co/privacy) and [terms](https://fictura.co/terms).
 
 ## Help
 

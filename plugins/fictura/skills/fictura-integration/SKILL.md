@@ -18,6 +18,6 @@ Rules while writing the code:
 
 - `Growth.init()` runs at module scope, before any component renders. Not inside `useEffect` or a component body.
 - Never write a price into code or a paywall document. Prices come from the store at render time (`{{ products.<slot>.price }}` in Studio documents).
-- Paywall and onboarding changes go into **drafts** (`create_paywall_draft`, `save_paywall_doc`, `create_onboarding_draft`, `save_onboarding_doc`). They never go live from here; a person publishes them in the Fictura dashboard. Edit the document you read with `get_paywall_doc` / `get_onboarding_doc`, keep node ids, and run the matching `validate_*` tool before saving.
+- Paywall and onboarding changes go into **drafts** (`create_paywall_draft`, `save_paywall_doc`, `create_onboarding_draft`, `save_onboarding_doc`). A person publishes them in the Fictura dashboard. Don't start, stop or create an experiment unless the user asks for it: starting one shows its arms to real users. Edit the document you read with `get_paywall_doc` / `get_onboarding_doc`, keep node ids, and run the matching `validate_*` tool before saving.
 
 If a data tool answers that you are not signed in, tell the user to sign in to Fictura from their MCP client (for example `/mcp` in Claude Code) or to add an MCP key from Dashboard → Setup → Coding agents (MCP). The documentation tools work without either.
