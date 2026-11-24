@@ -25,7 +25,7 @@
       "interface": {
         "displayName": "Fictura",
         "shortDescription": "App growth data for AI agents",
-        "longDescription": "Your coding agent knows your app's code. Fictura lets it see how the app actually performs.\n\nFictura is an AI-native growth platform and unified data layer for Expo and React Native apps. Its SDK captures in-app events, errors and entitlements and serves remotely managed paywalls and onboarding; the platform joins that with subscription revenue, conversion funnels, A/B experiments, attribution and ad spend, store analytics, deep links and surveys. This plugin gives ChatGPT and Codex permissioned access to that real context.\n\nWhat ChatGPT and Codex can do:\n- Write integration code against the real setup: the app's publishable SDK key, API base, valid placement names and live paywall and onboarding configurations.\n- Investigate growth: users, trials, trial-to-paid, funnel drop-off, cohorts, and revenue by store and country.\n- Compare experiments: every A/B test with its results and how likely each variant is to be best.\n- Understand acquisition: installs, organic vs paid, ROAS and CPI by campaign, creators and tracking links.\n- Debug production: error issues, stack traces and a fix brief.\n- Draft paywalls and onboarding flows for a person to review in Fictura's Studio.\n- Search Fictura's docs, no sign-in needed.\n\nWhat it can't do: publish a live paywall or onboarding flow, launch an experiment, delete data or deploy code. 44 tools, mostly read-only. With edit permission it can create and edit drafts, place a document on a Studio canvas you have open (unsaved), update an error issue when the app allows it, and start an import from an AppsFlyer account the app already connected.\n\nHow access works: sign in with Fictura, pick one app, and choose read-only or read + edit drafts. The connection sees only that app.\n\nWho it's for: founders, developers and growth teams shipping subscription apps on iOS and Android.\n\nRequires a Fictura account with an active subscription and either the AI plan or the app's own Anthropic key. The documentation tools work without an account.",
+        "longDescription": "Your coding agent knows your app's code. Fictura lets it see how the app actually performs.\n\nFictura is an AI-native growth platform and unified data layer for Expo and React Native apps. Its SDK captures in-app events, errors and entitlements and serves remotely managed paywalls and onboarding; the platform joins that with subscription revenue, conversion funnels, A/B experiments, attribution and ad spend, store analytics, deep links and surveys. This plugin gives ChatGPT and Codex permissioned access to that real context.\n\nWhat ChatGPT and Codex can do:\n- Write integration code against the real setup: the app's publishable SDK key, API base, valid placement names and live paywall and onboarding configurations.\n- Investigate growth: users, trials, trial-to-paid, funnel drop-off, cohorts, and revenue by store and country.\n- Compare experiments: every A/B test with its results and how likely each variant is to be best.\n- Understand acquisition: installs, organic vs paid, ROAS and CPI by campaign, creators and tracking links.\n- Debug production: error issues, stack traces, logs, traces, slow routes and a fix brief.\n- Draft paywalls and onboarding flows for a person to review in Fictura's Studio.\n- Search Fictura's docs, no sign-in needed.\n\nMore than 80 tools, most of them read-only, and every write is opt-in. Choosing Read and edit at sign-in allows drafts, an unsaved document on a Studio canvas you have open, the app's identity details and tracking links. An app setting, off by default, allows changing error issues, filters and monitoring settings, filing tickets, AI fix runs (which spend the app's own Anthropic money, capped) and A/B experiments. Starting an experiment shows its variants to users; a person rolls out the winner. A second setting, also off by default, allows draft pull requests, which are never merged. Starting an AppsFlyer import needs a key made for it.\n\nWhat it can't do: edit a paywall or onboarding flow users see or make one live, merge code, delete users or stored events, or change billing, members, keys or those settings.\n\nHow access works: sign in with Fictura, pick one app, and choose Read only or Read and edit. The connection sees only that app.\n\nWho it's for: founders, developers and growth teams shipping subscription apps on iOS and Android.\n\nRequires a Fictura account. An app is free while it sends at most 1M records over 30 days, then it needs the paid plan. The documentation tools work without an account.",
         "developerName": "Fictura",
         "category": "Developer Tools",
         "capabilities": [
@@ -79,12 +79,12 @@
               "description": "Draft paywall",
               "prompt": "Create a draft annual-plan paywall for review; do not publish it.",
               "tools_triggered": "list_templates, create_paywall_draft",
-              "expected_behavior": "Picks a real template, creates a draft paywall, returns its id with status \"draft\" and says it is not live. Needs read + edit drafts at sign-in."
+              "expected_behavior": "Picks a real template, creates a draft paywall, returns its id with status \"draft\" and says it is not live. Needs Read and edit at sign-in."
             }
           ],
           "negative": [
             {
-              "description": "Going live is out of scope: publishing happens only in the Fictura dashboard, by a person.",
+              "description": "Publishing on request is out of scope: no tool makes a paywall live, and a person does it in the Fictura dashboard.",
               "prompt": "Make my newest paywall live for all users right now."
             },
             {
@@ -101,7 +101,7 @@
         "commerce_description": "Fictura does not sell products or process payments through this plugin."
       },
       "publication": {
-        "release_notes": "Initial release: 44 tools giving ChatGPT and Codex real app setup, funnels, revenue, experiments, acquisition and errors, plus draft-only paywall and onboarding editing."
+        "release_notes": "Initial release: more than 80 tools giving ChatGPT and Codex real app setup, funnels, revenue, experiments, acquisition, errors and performance, plus opt-in writes."
       }
     }
   }

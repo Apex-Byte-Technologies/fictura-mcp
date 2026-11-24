@@ -1,7 +1,7 @@
 {
   "name": "fictura",
   "version": "1.0.0",
-  "description": "Connects Cursor to Fictura's hosted MCP server: your mobile app's paywalls, onboarding flows, subscription analytics, experiments, attribution and errors. Sign in with your Fictura account; drafts never go live from the agent.",
+  "description": "Connects Cursor to Fictura's hosted MCP server: your mobile app's paywalls, onboarding flows, subscription analytics, experiments, attribution and errors. Sign in with your Fictura account; it reads by default, and every write is opt-in.",
   "author": {
     "name": "Fictura",
     "email": "info@fictura.co"

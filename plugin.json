@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "fictura",
   "version": "1.0.0",
-  "description": "AI-native growth platform and unified app data layer for Expo and React Native apps. Gives agents the app's real SDK setup, paywall and onboarding configs, funnels, subscriptions, A/B experiments, attribution and crash reports through Fictura's hosted MCP server. Draft-only edits; never publishes live.",
+  "description": "AI-native growth platform and unified app data layer for Expo and React Native apps. Gives agents the app's real SDK setup, paywall and onboarding configs, funnels, subscriptions, A/B experiments, attribution and crash reports through Fictura's hosted MCP server. Reads by default; every write is opt-in.",
   "author": {
     "name": "Fictura",
     "url": "https://fictura.co",
